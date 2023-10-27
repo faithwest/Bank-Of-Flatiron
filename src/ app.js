@@ -69,7 +69,7 @@ return (
           </tr>
         </thead>
         <tbody>
-          {/* Step 7: Here, we're showing the transactions in a table. */}
+          {/* showing the transactions in a table. */}
           {filteredTransactions.map((transaction, index) => (
             <tr key={index}>
               <td>{transaction.date}</td>
@@ -80,3 +80,39 @@ return (
           ))}
         </tbody>
       </table>
+      <h2>Add Transaction</h2>
+      {/* form to add new transactions. */}
+      <input
+        type="text"
+        name="date"
+        placeholder="Date"
+        value={newTransaction.date}
+        onChange={handleInputChange}
+      />
+      <input
+        type="text"
+        name="description"
+        placeholder="Description"
+        value={newTransaction.description}
+        onChange={handleInputChange}
+      />
+      <input
+        type="text"
+        name="category"
+        placeholder="Category"
+        value={newTransaction.category}
+        onChange={handleInputChange}
+      />
+      <input
+        type="number"
+        name="amount"
+        placeholder="Amount"
+        value={newTransaction.amount}
+        onChange={handleInputChange}
+      />
+      <button onClick={handleAddTransaction}>Add</button>
+    </div>
+  );
+}
+
+export default App;
