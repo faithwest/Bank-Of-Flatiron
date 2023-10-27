@@ -29,3 +29,22 @@ function App() {
       [name]: name === "amount" ? parseFloat(value) : value,
     });
   };
+  //handling transactions
+  const handleAddTransaction = () => {
+    // on click of a button ,calls a function
+    // adds the new transactionthat we filled to transaction list.
+    setTransactions([...transactions, newTransaction]);
+
+    // function to reset
+    setNewTransaction({
+      date: "",
+      description: "",
+      category: "",
+      amount: 0,
+    });
+  }
+  const filteredTransactions = transactions.filter((transaction) =>
+  // filtering  transactions to only show the ones that match our search term.
+  // when something is typed in search box, this helps us  to find and show the matching transactions.
+  transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+);
