@@ -48,3 +48,35 @@ function App() {
   // when something is typed in search box, this helps us  to find and show the matching transactions.
   transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
 );
+
+//lets create some jsx to inject into the html 
+return (
+    <div>
+      <h1>Bank Transactions</h1>
+      <input
+        type="text"
+        placeholder="Search transactions"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Step 7: Here, we're showing the transactions in a table. */}
+          {filteredTransactions.map((transaction, index) => (
+            <tr key={index}>
+              <td>{transaction.date}</td>
+              <td>{transaction.description}</td>
+              <td>{transaction.category}</td>
+              <td>{transaction.amount}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
