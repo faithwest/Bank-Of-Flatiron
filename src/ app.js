@@ -19,3 +19,13 @@ function App() {
       .then((data) => setTransactions(data.transactions))
       .catch((error) => console.error("Error fetching data: " + error));
   }, []); // The "[]" means only do this when the app starts.
+
+  const handleInputChange = (e) => {
+    //  typing in an input field calls this function 
+    //  keep tabs of what is typed and updates the "newTransaction" variable.
+    const { name, value } = e.target;
+    setNewTransaction({
+      ...newTransaction,
+      [name]: name === "amount" ? parseFloat(value) : value,
+    });
+  };
